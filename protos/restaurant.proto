@@ -12,14 +12,14 @@ message Restaurant {
     repeated string cuisines = 4;
     double cost_for_two = 5;
 
-    message Point {
+    message Location {
         double lat = 1;
         double long = 2;
     }
 
     string opening_time = 6;
     string closing_time = 7;
-    Point location = 8;
+    Location location = 8;
 }
 
 enum StatusCode {
