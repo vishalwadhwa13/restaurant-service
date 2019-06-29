@@ -3,7 +3,7 @@ compile_protos:
 
 build:
 	mkdir -p out
-	go build -o out/restaurant-service
+	go build -o out/restaurant_service
 
 build_docker:
 	docker build -t restaurant-service .
