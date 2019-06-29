@@ -1,7 +1,7 @@
 package utils
 
 import (
-	pb "github.com/vishalwadhwa13/restaurant-service/restaurant-service"
+	pb "github.com/vishalwadhwa13/restaurant-service/protos"
 	"regexp"
 	"strconv"
 	"strings"
@@ -13,7 +13,7 @@ func ParseCuisines(c string) []string {
 	return strings.Split(c, ",")
 }
 
-func ParseCoordinates(c string) (*pb.Restaurant_Point, error) {
+func ParseLocation(c string) (*pb.Restaurant_Location, error) {
 	res := pointParseRE.FindStringSubmatch(c)
 
 	lat, err := strconv.ParseFloat(res[1], 64)
@@ -26,5 +26,5 @@ func ParseCoordinates(c string) (*pb.Restaurant_Point, error) {
 		return nil, err
 	}
 
-	return &pb.Restaurant_Point{Lat: lat, Long: long}, nil
+	return &pb.Restaurant_Location{Lat: lat, Long: long}, nil
 }
