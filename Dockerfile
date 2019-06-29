@@ -19,4 +19,4 @@ RUN make build
 EXPOSE 8080/tcp
 
 # Run the executable
-CMD ["out/restaurant-service"]
+CMD ["out/restaurant_service"]
