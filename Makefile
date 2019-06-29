@@ -1,5 +1,5 @@
 compile_protos:
-	protoc --go_out=plugins=grpc:. -I. ./restaurant-service/*.proto
+	protoc --go_out=plugins=grpc:. -I. ./protos/*.proto
 
 build:
 	mkdir -p out
