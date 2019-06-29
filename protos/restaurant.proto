@@ -3,8 +3,6 @@ syntax = "proto3";
 package restaurant_service;
 option go_package="restaurant_service";
 
-import "google/protobuf/empty.proto";
-
 message Restaurant {
     uint64 res_id = 1;
     string name = 2;
@@ -22,12 +20,11 @@ message Restaurant {
     Location location = 8;
 }
 
-enum StatusCode {
-    SUCCESS = 0;
-    FAIL = 1;
-}
-
 message Status {
+    enum StatusCode {
+        FAIL = 0;
+        SUCCESS = 1;
+    }
     StatusCode code = 1;
     string message = 2;
 }
@@ -66,10 +63,14 @@ message DeleteRestaurantResponse {
     Status status = 2;
 }
 
+message GetAllRestaurantRequest {
+
+}
+
 service RestaurantService {
     rpc AddRestaurant(AddRestaurantRequest) returns (AddRestaurantResponse) {}
     rpc GetRestaurant(GetRestaurantRequest) returns (GetRestaurantResponse) {}
     rpc EditRestaurant(EditRestaurantRequest) returns (EditRestaurantResponse) {}
     rpc DeleteRestaurant(DeleteRestaurantRequest) returns (DeleteRestaurantResponse) {}
-    rpc GetAllRestaurant(google.protobuf.Empty) returns (stream Restaurant) {}
+    rpc GetAllRestaurant(GetAllRestaurantRequest) returns (stream GetRestaurantResponse) {}
 }
