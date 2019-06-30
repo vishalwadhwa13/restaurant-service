@@ -5,5 +5,5 @@ build:
 	mkdir -p out
 	go build -o out/restaurant_service
 
-build_docker:
+docker_build:
 	docker build -t restaurant-service .
